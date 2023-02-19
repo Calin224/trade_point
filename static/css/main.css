@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+* {
+    font-family: 'Space Mono', monospace;
+}
+
+nav,
+.categories {
+    background-color: #181823;
+}
