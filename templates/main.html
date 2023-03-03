@@ -17,26 +17,31 @@
 <body>
     <nav class="py-6 px-6 flex justify-around items-center text-white rounded-b-lg">
         <div class="flex gap-2 items-center">
-            {% bs_icon 'envelope-paper-heart-fill' size='1.5em' %}
-            <span class="text-2xl font-bold animate-pulse" style="color: #537FE7;">Trade Point</span>
-            {% bs_icon 'question-circle-fill' size='1em' %}
+{#            {% bs_icon 'envelope-paper-heart-fill' size='1.5em' %}#}
             {% bs_icon 'shield-lock-fill' size='1em' %}
-            {% bs_icon 'phone-fill' size='1em' %}
+            <span class="text-2xl font-bold animate-pulse" style="color: #537FE7;"><a href="{% url 'base:index' %}">Trade Point</a></span>
+{#            {% bs_icon 'question-circle-fill' size='1em' %}#}
+{#            #}
+{#            {% bs_icon 'phone-fill' size='1em' %}#}
         </div>
         <div class="flex gap-6 items-center">
             <div class="flex items-center gap-2 hover:text-teal-500 hover:cursor-pointer hover:opacity-80">
                 {% bs_icon 'person-fill' size='1.5em' %}
-                <span class="text-lg font-bold">Account</span>
+                <span class="text-lg font-bold"><a href="{% url 'dashboard:index' %}">Account</a></span>
             </div>
             <div class="flex items-center gap-2 hover:text-teal-500 hover:cursor-pointer hover:opacity-80">
                 {% bs_icon 'chat-left-fill' size='1.3em' %}
-                <span class="text-lg font-bold">Messages</span>
+                <span class="text-lg font-bold"><a href="{% url 'conversation:inbox' %}">Messages</a></span>
             </div>
-            <a href="" class="trasition ease-in-out delay-150 duration-300 text-lg font-bold bg-gray-800 px-5 py-2 
+            <a href="{% url 'item:new' %}" class="trasition ease-in-out delay-150 duration-300 text-lg font-bold bg-gray-800 px-5 py-2
                 rounded-lg flex gap-2 items-center hover:bg-gray-900 hover:-translate-y-110 hover:scale-110">
                 {% bs_icon 'plus-lg' size='1.3em' extra_classes='animate-pulse' %}
                 New trade
             </a>
+
+            <div hx-get="{% url 'hx_menu_cart' %}" hx-trigger="update-menu-cart from:body" hx-swap="innerHTML">
+                {% include 'cart/partials/menu_cart.html' %}
+            </div>
         </div>
     </nav>
 
@@ -62,6 +67,12 @@
         </div>
     </footer> -->
 
+
+<script src="https://unpkg.com/htmx.org@1.8.5"></script>
+
+{% block scripts %}
+
+{% endblock %}
 
 </body>
 
