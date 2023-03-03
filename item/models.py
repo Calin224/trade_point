@@ -21,16 +21,22 @@ class Item(models.Model):
     category = models.ForeignKey(Category, related_name='items', on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True, null=True)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    price = models.IntegerField()
     image = models.ImageField(upload_to='item_images', blank=True, null=True)
     thumbnail = models.ImageField(upload_to='item_images', blank=True, null=True)
     is_sold = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User, related_name='items', on_delete=models.CASCADE)
     updated_at = models.DateTimeField(auto_now=True)
-    
+
+    class Meta:
+        ordering = ('-created_at',)
+
     def __str__(self):
         return self.name
+
+    def get_display_price(self):
+        return self.price / 100
 
     def get_thumbnail(self):
         if self.thumbnail:

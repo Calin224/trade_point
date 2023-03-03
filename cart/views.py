@@ -17,7 +17,6 @@ def add_to_cart(request, product_id):
     cart.add(product_id)
     return render(request, 'cart/partials/menu_cart.html', {'cart': cart})
 
-
 def cart(request):
     return render(request, 'cart/cart.html')
 
@@ -56,7 +55,6 @@ def update_cart(request, product_id, action):
     response['HX-Trigger'] = 'update-menu-cart'
 
     return response
-
 
 @login_required
 def checkout(request):

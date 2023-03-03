@@ -26,16 +26,16 @@ SECRET_KEY = 'django-insecure-w@$)0g!ie5f=^vgw_%i42==0ama$7b1*xgaa!=5#(m9b#je@fe
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-SESSION_COOKIE_AGE = 60 * 60 * 24 * 7  # 7 days
-CART_SESSION_ID = 'cart'
-STRIPE_API_KEY_PUBLISHABLE = 'pk_test_51MdB3tInUMetBnlgGpx5vg9FFeNL1NXxslAjiSj83nwtszg43tvrP9eQxtv44hhbcoDPKq1bh53bKm5k2pvgo2Wk00wDiYxVLn'
-STRIPE_API_KEY_HIDDEN = 'sk_test_51MdB3tInUMetBnlgp1dzxb9pUnsfYqjJcT2GjeCOqnghYGIeN5CLGegFpLTeuV3ygyfrOIZAr9vAB4ktRDlI3oeB00qUzukTXH'
-
 ALLOWED_HOSTS = ['*']
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+SESSION_COOKIE_AGE = 86400
+CART_SESSION_ID = 'cart'
+STRIPE_API_KEY_PUBLISHABLE = 'pk_test_51MdB3tInUMetBnlgGpx5vg9FFeNL1NXxslAjiSj83nwtszg43tvrP9eQxtv44hhbcoDPKq1bh53bKm5k2pvgo2Wk00wDiYxVLn'
+STRIPE_API_KEY_HIDDEN = 'sk_test_51MdB3tInUMetBnlgp1dzxb9pUnsfYqjJcT2GjeCOqnghYGIeN5CLGegFpLTeuV3ygyfrOIZAr9vAB4ktRDlI3oeB00qUzukTXH'
 
 # Application definition
 
@@ -80,6 +80,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart'
             ],
         },
     },

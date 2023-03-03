@@ -1,7 +1,5 @@
 from django.conf import settings
-
 from item.models import Item
-
 
 class Cart(object):
     def __init__(self, request):

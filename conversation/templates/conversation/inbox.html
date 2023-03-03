@@ -16,7 +16,7 @@
                     {% for member in conversation.members.all %}
                         {% if member != request.user %}
                             <p class="mb-4"><strong>{{member.username}}</strong> | {{conversation.updated_at}}</p>
-                            <p>{{conversation.item.name}}</p>
+                            <p>{{conversation.content}}</p>
                         {% endif %}
                     {% endfor %}
                 </div>
