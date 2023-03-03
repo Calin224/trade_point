@@ -16,7 +16,6 @@ class Category(models.Model):
     def __str__(self):
         return self.name
     
-    
 class Item(models.Model):
     category = models.ForeignKey(Category, related_name='items', on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
@@ -48,15 +47,15 @@ class Item(models.Model):
 
                 return self.thumbnail.url
             else:
-                return 'https://via.placeholder.com/240x240.jpg'
+                return 'https://via.placeholder.com/300x300.jpg'
 
-    def make_thumbnail(self, image, size=(450, 450)):
+    def make_thumbnail(self, image, size=(300, 300)):
         img = Image.open(image)
         img.convert('RGB')
         img.thumbnail(size)
 
         thumb_io = BytesIO()
-        img.save(thumb_io, 'JPEG', quality=85)
+        img.save(thumb_io, 'JPEG', quality=90)
 
         thumbnail = File(thumb_io, name=image.name)
         return thumbnail

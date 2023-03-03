@@ -15,41 +15,42 @@
 </head>
 
 <body>
-    <nav class="py-6 px-6 flex justify-around items-center text-white rounded-b-lg">
-        <div class="flex gap-2 items-center">
-{#            {% bs_icon 'envelope-paper-heart-fill' size='1.5em' %}#}
-            {% bs_icon 'shield-lock-fill' size='1em' %}
-            <span class="text-2xl font-bold animate-pulse" style="color: #537FE7;"><a href="{% url 'base:index' %}">Trade Point</a></span>
-{#            {% bs_icon 'question-circle-fill' size='1em' %}#}
-{#            #}
-{#            {% bs_icon 'phone-fill' size='1em' %}#}
-        </div>
-        <div class="flex gap-6 items-center">
-            <div class="flex items-center gap-2 hover:text-teal-500 hover:cursor-pointer hover:opacity-80">
-                {% bs_icon 'person-fill' size='1.5em' %}
-                <span class="text-lg font-bold"><a href="{% url 'dashboard:index' %}">Account</a></span>
-            </div>
-            <div class="flex items-center gap-2 hover:text-teal-500 hover:cursor-pointer hover:opacity-80">
-                {% bs_icon 'chat-left-fill' size='1.3em' %}
-                <span class="text-lg font-bold"><a href="{% url 'conversation:inbox' %}">Messages</a></span>
-            </div>
-            <a href="{% url 'item:new' %}" class="trasition ease-in-out delay-150 duration-300 text-lg font-bold bg-gray-800 px-5 py-2
-                rounded-lg flex gap-2 items-center hover:bg-gray-900 hover:-translate-y-110 hover:scale-110">
-                {% bs_icon 'plus-lg' size='1.3em' extra_classes='animate-pulse' %}
-                New trade
-            </a>
-
-            <div hx-get="{% url 'hx_menu_cart' %}" hx-trigger="update-menu-cart from:body" hx-swap="innerHTML">
-                {% include 'cart/partials/menu_cart.html' %}
-            </div>
-        </div>
-    </nav>
-
-    <div class="px-6 py-6">
-        {% block content %}{% endblock content %}
+<nav class="py-6 px-6 flex flex-col space-y-12 lg:space-y-0 lg:flex-row lg:justify-around items-center text-white ">
+    <div class="flex gap-2 items-center">
+        {#            {% bs_icon 'envelope-paper-heart-fill' size='1.5em' %}#}
+        {% bs_icon 'shield-lock-fill' size='1em' %}
+        <span class="text-2xl font-bold animate-pulse" style="color: #537FE7;"><a href="{% url 'base:index' %}">Trade Point</a></span>
+        {#            {% bs_icon 'question-circle-fill' size='1em' %}#}
+        {#            #}
+        {#            {% bs_icon 'phone-fill' size='1em' %}#}
     </div>
+    <div class="flex space-x-6 ">
+        <div class="flex items-center space-x-2 hover:text-teal-500 hover:cursor-pointer hover:opacity-80">
+            {% bs_icon 'person-fill' size='1.5em' %}
+            <span class="text-lg font-bold"><a href="{% url 'dashboard:index' %}">Account</a></span>
+        </div>
+        <div class="flex items-center space-x-2 hover:text-teal-500 hover:cursor-pointer hover:opacity-80">
+            {% bs_icon 'chat-left-fill' size='1.3em' %}
+            <span class="text-lg font-bold"><a href="{% url 'conversation:inbox' %}">Messages</a></span>
+        </div>
+        <a href="{% url 'item:new' %}" class="trasition ease-in-out delay-150 duration-300 text-lg font-bold bg-gray-800 px-5 py-2
+                rounded-lg flex gap-2 items-center hover:bg-gray-900 hover:-translate-y-110 hover:scale-110">
+            {% bs_icon 'plus-lg' size='1.3em' extra_classes='animate-pulse' %}
+            New trade
+        </a>
+    </div>
+    <div>
+        <div hx-get="{% url 'hx_menu_cart' %}" hx-trigger="update-menu-cart from:body" hx-swap="innerHTML">
+            {% include 'cart/partials/menu_cart.html' %}
+        </div>
+    </div>
+</nav>
 
-    <!-- <footer class="py-6 px-6 flex flex-bewtween bg-gray-800">
+<div class="px-6 py-6">
+    {% block content %}{% endblock content %}
+</div>
+
+<!-- <footer class="py-6 px-6 flex flex-bewtween bg-gray-800">
         <div class="w-2/3 pr-10">
             <h3 class="mb-5 font-semibold text-gray-400">About</h3>
             <p class="text-lg text-gray-500">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione ipsa

@@ -4,25 +4,26 @@
 
 {% block content %}
 
-    <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+    <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl ">
         <h2 class="mb-12 text-2xl text-center">Newest items</h2>
+        <div class="">
+            <div class="flex flex-wrap items-center gap-6">
+                {% for item in items %}
+                    <div class="">
+                        <a href="{% url 'item:detail' item.id %}">
+                            <div class="w-[300px] h-[300px] rounded-t-xl"
+                                 style="background-image: url('{{ item.get_thumbnail }}'); background-size: cover;">
+                                {#<img src="{{ item.get_thumbnail }}" alt="{{item.name}}" class="rounded-t-xl" style="">#}
+                            </div>
 
-        <div class="flex flex-wrap justify-center items-center gap-6 ">
-            {% for item in items %}
-                <div class="">
-                    <a href="{% url 'item:detail' item.id %}">
-                        <div class="w-[450px] h-[450px] rounded-t-xl"
-                             style="background-image: url('{{ item.get_thumbnail }}'); background-size: cover;">
-                            {#<img src="{{ item.get_thumbnail }}" alt="{{item.name}}" class="rounded-t-xl" style="">#}
-                        </div>
-
-                        <div class="p-6 bg-white rounded-b-xl shadow-lg">
-                            <h2 class="text-2xl">{{ item.name }}</h2>
-                            <p class="text-gray-500">Price: {{ item.get_display_price }}</p>
-                        </div>
-                    </a>
-                </div>
-            {% endfor %}
+                            <div class="p-6 bg-white rounded-b-xl shadow-lg">
+                                <h2 class="text-2xl">{{ item.name }}</h2>
+                                <p class="text-gray-500">Price: {{ item.get_display_price }}</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 

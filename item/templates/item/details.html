@@ -5,7 +5,7 @@
 {% block content %}
     <div class="grid grid-cols-5 gap-6 ">
         <div class="col-span-3 " align="center">
-            <img src="{{ item.get_image }}" alt="{{ item.name }}" class="rounded-xl max-h-[60vh]">
+            <img src="{{ item.get_image }}" alt="{{ item.name }}" class="rounded-xl max-h-[80vh]">
         </div>
 
         <div class="col-span-2 p-6 bg-gray-100 rounded-xl">
@@ -56,9 +56,9 @@
                 {% for item in related_items %}
                     <div>
                         <a href="{% url 'item:detail' item.id %}">
-                            <div class="w-[450px] h-[450px] rounded-t-xl"
+                            <div class="w-[300px] h-[300px] rounded-t-xl"
                                  style="background-image: url('{{ item.get_thumbnail }}'); background-size: cover;">
-                                {#                        <img src="{{item.get_thumbnail}}" alt="{{item.name}}" class="rounded-t-xl">#}
+{#                               <img src="{{item.get_thumbnail}}" alt="{{item.name}}" class="rounded-t-xl">#}
                             </div>
 
                             <div class="p-6 bg-white rounded-b-xl">
