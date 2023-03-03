@@ -65,3 +65,4 @@ class Item(models.Model):
             return self.image.url
         else:
             return 'https://via.placeholder.com/240x240.jpg'
+
