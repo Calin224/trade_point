@@ -10,6 +10,7 @@ django-bootstrap-icons = "*"
 stripe = "*"
 django-star-ratings = "*"
 django-jazzmin = "*"
+posthog = "*"
 
 [dev-packages]
 

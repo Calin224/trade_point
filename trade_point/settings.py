@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os.path
 from pathlib import Path
+import posthog
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,6 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-w@$)0g!ie5f=^vgw_%i42==0ama$7b1*xgaa!=5#(m9b#je@fe'
+
+import posthog
+
+posthog.project_api_key = 'phc_33O3FcmCfPbnM7n0FYGKx3iya4z22QtyPVLhDEhyQhE'
+posthog.host = 'https://app.posthog.com'
+
+posthog.capture('test-id', 'test-event')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
