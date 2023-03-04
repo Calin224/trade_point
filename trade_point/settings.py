@@ -40,6 +40,7 @@ STRIPE_API_KEY_HIDDEN = 'sk_test_51MhchWBdmajXwY2P96sXZ0AdzuBk5xcbPwBwrhGSSip5p2
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

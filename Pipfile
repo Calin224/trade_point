@@ -9,6 +9,7 @@ pillow = "*"
 django-bootstrap-icons = "*"
 stripe = "*"
 django-star-ratings = "*"
+django-jazzmin = "*"
 
 [dev-packages]
 
