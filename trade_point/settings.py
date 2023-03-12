@@ -24,7 +24,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-w@$)0g!ie5f=^vgw_%i42==0ama$7b1*xgaa!=5#(m9b#je@fe'
 
-import posthog
 
 posthog.project_api_key = 'phc_33O3FcmCfPbnM7n0FYGKx3iya4z22QtyPVLhDEhyQhE'
 posthog.host = 'https://app.posthog.com'
@@ -40,10 +39,14 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-SESSION_COOKIE_AGE = 86400
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 7
 CART_SESSION_ID = 'cart'
 STRIPE_API_KEY_PUBLISHABLE = 'pk_test_51MhchWBdmajXwY2PNfoi4zxJrn1D1WYgOYamZDprEWhcXD9qbaDTWpnr7SNJIv3jxYtkcgxsSlUviiowKPJ8YTuF00EhdiFNTD'
 STRIPE_API_KEY_HIDDEN = 'sk_test_51MhchWBdmajXwY2P96sXZ0AdzuBk5xcbPwBwrhGSSip5p2XxqxR0Vp4FynJhcCorWZLBBLRgtSWRQhBtO5RC3n0d002ulFkFss'
+
+STAR_RATINGS_RERATE = False
+STAR_RATINGS_ANONYMOUS = True
+
 
 # Application definition
 
