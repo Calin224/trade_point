@@ -6,7 +6,7 @@
 {% block content %}
     <div class="grid grid-cols-5 gap-6 ">
         <div class="col-span-3 " align="center">
-            <img src="{{ item.get_image }}" alt="{{ item.name }}" class="rounded-xl max-h-[80vh]">
+            <img src="{{ item.image.url }}" alt="{{ item.name }}" class="rounded-xl max-h-[80vh]">
         </div>
 
         <div class="col-span-2 p-6 bg-gray-100 rounded-xl">
