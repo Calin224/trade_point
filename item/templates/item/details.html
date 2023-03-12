@@ -4,15 +4,22 @@
 {% block title %}{{ item.name }}{% endblock title %}
 
 {% block content %}
-    <div class="grid grid-cols-5 gap-6 ">
-        <div class="col-span-3 " align="center">
-            <img src="{{ item.image.url }}" alt="{{ item.name }}" class="rounded-xl max-h-[80vh]">
+    <div class="flex flex-row flex-wrap">
+        <div class="w-1/2 ">
+            <img src="{{ item.get_image }}" alt="{{ item.name }}" class="rounded-xl max-h-[80vh]">
         </div>
 
-        <div class="col-span-2 p-6 bg-gray-100 rounded-xl">
-            <h1 class="mb-6 text-3xl">{{ item.name }}</h1>
-            <p class="text-gray-500 "><strong>Price:</strong> {{ item.get_display_price }}</p>
-            <p class="text-gray-500 "><strong>Seller:</strong> {{ item.created_by.username }}</p><br>
+        <div class="w-1/2 p-6 bg-gray-900 rounded-xl text-center">
+            <h1 class="mb-6 text-3xl text-white">{{ item.name }}</h1>
+
+            <div class="flex flex-col">
+                <div>
+                    
+                </div>
+            </div>
+
+            <p class="text-white "><strong>Price:</strong> {{ item.get_display_price }} lei</p>
+            <p class="text-white "><strong>Seller:</strong> {{ item.created_by.username }}</p><br>
 
             {% if item.description %}
                 <p class="text-gray-700">
@@ -41,7 +48,7 @@
                 <div>
                     <a
                             href="#"
-                            class="mt-6 inline-block px-8 py-4 rounded-xl bg-teal-500 text-white hover:bg-teal-600"
+                            class=""
                             hx-get="{% url 'add_to_cart' item.id %}"
                             hx-target="#menu-cart-button"
                             hx-swap="outerHTML"
@@ -62,7 +69,7 @@
                     <div>
                         <a href="{% url 'item:detail' item.id %}">
                             <div class="w-[300px] h-[300px] rounded-t-xl"
-                                 style="background-image: url('{{ item.get_thumbnail }}'); background-size: cover;">
+                                 style="background-image: url('{{ item.image.url }}'); background-size: cover;">
                                 {#                               <img src="{{item.get_thumbnail}}" alt="{{item.name}}" class="rounded-t-xl">#}
                             </div>
 
