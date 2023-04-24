@@ -90,7 +90,7 @@
     <div class="mt-3 text-2xl font-bold">
         &lt; Categories &gt;
     </div>
-    <div class="m-6 flex justify-around items-center gap-28">
+    <div class="m-6 flex justify-around items-center gap-14 flex-wrap">
         <div
             class="flex flex-col gap-2 items-center hover:bg-gray-900 hover:-translate-y-110 hover:scale-110 trasition ease-in-out duration-300">
             <div class="p-6 bg-amber-500 rounded-full">
@@ -194,17 +194,19 @@
                    </div>
             </div> -->
 
-            
+              <a >
                 <div class="flex flex-row justify-start items-center flex-wrap min-h-72">
                   <div class="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
-                    <h3 class="mb-3 text-2xl font-bold text-indigo-600">{{item.name}}</h3>
+                    <a href="{% url 'item:detail' item.id %}"><h3 class="mb-3 text-2xl font-bold text-indigo-600">{{item.name}}</h3></a> 
+                    
                     <div class="relative">
                       <img class="w-full rounded-xl" src="{{ item.get_thumbnail }}" alt="" />
                       <p class="absolute top-0 bg-yellow-300 text-gray-800 font-semibold py-1 px-3 rounded-br-lg rounded-tl-lg">{{item.get_display_price}}</p>
                     </div>
+                    {% if item.description %}
                     <h1 class="mt-4 text-gray-800 text-2xl font-bold cursor-pointer">{{item.description}}</h1>
+                    {% endif %}
                     <div class="my-4">
-                      
                       <button class="mt-4 text-xl w-full text-white bg-indigo-600 rounded-xl shadow-lg flex justify-center py-4"
                       hx-get="{% url 'add_to_cart' item.id %}" hx-target="#menu-cart-button"
                       hx-swap="outerHTML">
@@ -213,7 +215,6 @@
                     </div>
                   </div>                 
                 </div>
-              
             
             {% endfor %}
             {% endif %}
